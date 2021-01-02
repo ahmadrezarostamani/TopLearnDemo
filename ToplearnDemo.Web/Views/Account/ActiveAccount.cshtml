@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewData["Title"] = "فعالسازی حساب";
+}
+
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">تاپ لرن</a></li>
+            <li class="breadcrumb-item active" aria-current="page">نتیجه فعالسازی حساب</li>
+        </ul>
+    </nav>
+</div>
+
+    <div class="container">
+        @if (ViewBag.ActivationResult == true)
+        {
+            <div class="alert alert-success">
+                <p>کاربر گرامی،فعالسازی حساب شما با موفقیت صورت پذیرفت.میتوانید وارد حساب کاربری خود شده و از امکانات سایت بهره ببرید.</p>
+                <p>
+                    <a class="btn btn-primary" href="/login">ورود به سایت</a>
+                </p>
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-danger">
+                <p>متاسفانه کاربری با کد فعالسازی وارده یافت نشد.</p>
+            </div>
+        }
+    </div>

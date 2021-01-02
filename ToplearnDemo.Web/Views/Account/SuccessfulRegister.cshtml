@@ -1,0 +1,21 @@
+﻿@using ToplearnDemo.ViewModels.Account
+@model RegisterViewModel
+@{
+    ViewData["Title"] = "پایان ثبت نام";
+}
+
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">تاپ لرن</a></li>
+            <li class="breadcrumb-item active" aria-current="page">پایان ثبت نام</li>
+        </ul>
+    </nav>
+    
+</div>
+
+    <div class="container alert alert-success">
+        <p>@Model.Username عزیز !</p>
+        <p>ایمیلی حاوی لینک فعالسازی به آدرس @Model.Email ارسال شده است.</p>
+        <p>جهت ورود به سایت وارد ایمیل خود شده و نسبت به فعالسازی ایمیل خود اقدام نمایید.</p>
+    </div>

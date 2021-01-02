@@ -1,0 +1,81 @@
+﻿@using ToplearnDemo.Web.ViewModels.Account
+@model RegisterViewModel
+@{
+    ViewData["Title"] = "ثبت نام";
+}
+
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">تاپ لرن</a></li>
+            <li class="breadcrumb-item active" aria-current="page">عضویت در سایت</li>
+        </ul>
+    </nav>
+</div>
+
+<main class="client-page">
+    <div class="container-content">
+
+        <header><h2> عضویت در سایت </h2></header>
+
+        <div class="form-layer">
+            @if (ViewBag.ErrorMessage!=null)
+            {
+                <div class="alert alert-danger">
+                    <p>@ViewBag.ErrorMessage</p>
+                </div>
+            }
+        <form action="register" method="post">
+
+            <div class="input-group">
+                <span class="input-group-addon" id=""><i class="zmdi zmdi-account"></i></span>
+                <input asp-for="Name" type="text" class="form-control" placeholder="نام" aria-describedby="username">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon" id=""><i class="zmdi zmdi-account"></i></span>
+                <input asp-for="Family" type="text" class="form-control" placeholder="نام خانوادگی" aria-describedby="username">
+            </div>
+
+            <div class="input-group">
+                <span class="input-group-addon" id=""><i class="zmdi zmdi-account"></i></span>
+                <input asp-for="Username" type="text" class="form-control" placeholder="نام کاربری" aria-describedby="username">
+            </div>
+
+            <div class="input-group">
+                <span class="input-group-addon" id="email-address"><i class="zmdi zmdi-email"></i></span>
+                <input asp-for="Email" type="text" class="form-control" placeholder="ایمیل" aria-describedby="email-address">
+            </div>
+
+            <div class="input-group">
+                <span class="input-group-addon" id=""><i class="zmdi zmdi-lock"></i></span>
+                <input asp-for="Password" class="form-control" placeholder="رمز عبور " aria-describedby="password">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon" id=""><i class="zmdi zmdi-lock"></i></span>
+                <input asp-for="ConfirmPassword" class="form-control" placeholder="تکرار رمز عبور" aria-describedby="password">
+            </div>
+
+            <div class="accept-rules">
+                <label><input type="checkbox" name="">  قوانین و مقررات سایت را میپذیرم </label>
+            </div>
+
+            <div class="link">
+                <a href=""> <i class="zmdi zmdi-assignment"></i> قوانین و مقررات سایت !</a>
+                <a href="/Login"> <i class="zmdi zmdi-account"></i> ورود به سایت </a>
+            </div>
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <button class="btn btn-success"> عضویت در سایت </button>
+
+        </form>
+        </div>
+
+    </div>
+</main>
+
+@section Scripts{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    @*<script src="/client-validation/jquery.min.js"></script>
+    <script src="/client-validation/jquery.validate.min.js"></script>
+    <script src="/client-validation/jquery.validate.unobtrusive.js"></script>*@
+}

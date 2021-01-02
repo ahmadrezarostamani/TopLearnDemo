@@ -1,0 +1,87 @@
+﻿@using ToplearnDemo.Web.ViewModels.UserPanel
+@model EditProfileViewModel
+@{
+    ViewData["Title"] = "ویرایش حساب کاربری";
+}
+
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">تاپ لرن</a></li>
+            <li class="breadcrumb-item active" aria-current="page">ویرایش حساب کاربری</li>
+        </ul>
+    </nav>
+</div>
+
+<main>
+    <div class="container">
+        <div class="user-account">
+            <div class="row">
+                @await Component.InvokeAsync("UserPanelSideBar")
+                <div class="col-md-9 col-sm-8 col-xs-12">
+                    <section class="user-account-content">
+                        <header><h1> ویرایش حساب کاربری </h1></header>
+                        @if (ViewBag.EditProfileResult== true)
+                        {
+                            <div class="alert alert-success">
+                                <p>ویرایش اطلاعات با موفقیت صورت گرفت.</p>
+                            </div>
+                        }
+                        @if(ViewBag.EditProfileResult == false)
+                        {
+                            <div class="alert alert-danger">
+                                <p>متاسفانه عملیات با شکست مواجه شد.</p>
+                            </div>
+                        }
+                        <div class="inner form-layer">
+                            <form asp-action="EditProfile" method="post" enctype="multipart/form-data">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" asp-for="UserImage" />
+                                <div class="row">
+                                    <div class="col-md-7 col-sm-8 col-xs-12">
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id=""><i class="zmdi zmdi-account"></i></span>
+                                            <input asp-for="Name" class="form-control" placeholder="نام" aria-describedby="username">
+                                        </div>
+                                        @*<span class="text-danger" asp-validation-for="Username"></span>*@
+                                    </div>
+                                    <div class="col-md-7 col-sm-8 col-xs-12">
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id=""><i class="zmdi zmdi-account"></i></span>
+                                            <input asp-for="Family" class="form-control" placeholder="نام خانوادگی" aria-describedby="username">
+                                        </div>
+                                        @*<span class="text-danger" asp-validation-for="Username"></span>*@
+                                    </div>
+                                    <div class="col-md-7 col-sm-8 col-xs-12">
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="email-address"><i class="zmdi zmdi-email"></i></span>
+                                            <input asp-for="Email" class="form-control" placeholder="ایمیل" aria-describedby="email-address">
+                                        </div>
+                                        @*<span class="text-danger" asp-validation-for="Email"></span>*@
+                                    </div>
+
+
+                                    <div class="col-md-7 col-sm-8 col-xs-12">
+                                        <p class="help-block">
+                                            <input type="file" asp-for="UserAvatar" />
+                                        </p>
+                                    </div>
+                                    <div class="col-md-7 col-sm-8 col-xs-12 text-danger" asp-validation-summary="All"></div>
+                                    <br />
+                                    <div class="col-md-7 col-sm-8 col-xs-12">
+                                        <button class="btn btn-success">ویرایش</button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+@section Scripts{ 
+@{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
