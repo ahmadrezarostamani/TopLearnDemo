@@ -9,7 +9,7 @@ using ToplearnDemo.DataLayer.Context;
 
 namespace ToplearnDemo.DataLayer.Migrations
 {
-    [DbContext(typeof(TopleranDemoContext))]
+    [DbContext(typeof(ToplearnDemoContext))]
     [Migration("20201226173758_Init")]
     partial class Init
     {

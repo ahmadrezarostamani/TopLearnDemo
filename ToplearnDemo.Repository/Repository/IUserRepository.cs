@@ -10,6 +10,7 @@ namespace ToplearnDemo.Repository.Repository
 {
     public interface IUserRepository
     {
+        #region Register_Login
         Task<bool> UsernameExists(string username);
 
         Task<bool> EmailExists(string email);
@@ -25,6 +26,7 @@ namespace ToplearnDemo.Repository.Repository
         Task<bool> ResetPassword(ResetPasswordViewModel model);
 
         Task<bool> ActivatioCodeIsValid(string activationCode);
+        #endregion
 
         #region UserPanel
 

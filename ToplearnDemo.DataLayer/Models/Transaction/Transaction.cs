@@ -25,7 +25,7 @@ namespace ToplearnDemo.DataLayer.Models.Transaction
 
         [Display(Name = "مبلغ")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید.")]
-        public decimal Price { get; set; }
+        public int Price { get; set; }
 
         [Display(Name = "تایید شده")]
         public bool IsDone { get; set; }

@@ -1,0 +1,46 @@
+﻿@using ToplearnDemo.ViewModels.Wallet
+@model PaymentResultViewModel
+@{
+    ViewData["Title"] = "نتیجه پرداخت";
+}
+
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">تاپ لرن</a></li>
+            <li class="breadcrumb-item active" aria-current="page">نتیجه پرداخت</li>
+        </ul>
+    </nav>
+</div>
+
+<div class="container">
+    @if (Model.Status == true)
+    {
+        <div class="alert alert-success">
+            <h3>پرداخت موفقیت آمیز</h3>
+            <p>پرداخت با موفقیت صورت پذیرفت.شماره پیگیری پرداخت عبارت است از : @Model.PaymentCode</p>
+            <a href="/userpanel" class="btn btn-primary">بازگشت به پنل کاربری</a>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-danger">
+            <h3>پرداخت ناموفق</h3>
+            @if (Model.ErrorMessage != null)
+            {
+                <p>@Model.ErrorMessage</p>
+            }
+            else
+            {
+                <p>متاسفانه عملیات پرداخت با شکست همراه شد.</p>
+                if (Model.PaymentCode!=null)
+                {
+                    <p>کد پیگیری پرداخت عبارت است از : @Model.PaymentCode</p>
+                }
+            }
+
+        </div>
+    }
+</div>
+
+

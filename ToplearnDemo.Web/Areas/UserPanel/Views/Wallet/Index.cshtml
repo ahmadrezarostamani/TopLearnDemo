@@ -1,0 +1,108 @@
+﻿@using ToplearnDemo.ViewModels.Wallet
+@model ChargeWalletViewModel
+@{
+    ViewData["Title"] = "کیف پول";
+    List<TransactionHistoryViewModel> transactions = null;
+    if (ViewBag.TransactionHistory!=null)
+    {
+        transactions = (List<TransactionHistoryViewModel>)ViewBag.TransactionHistory;
+    }
+}
+
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">تاپ لرن</a></li>
+            <li class="breadcrumb-item active" aria-current="page">کیف پول</li>
+        </ul>
+    </nav>
+</div>
+
+
+<main>
+    <div class="container">
+        <div class="user-account">
+            <div class="row">
+                @await Component.InvokeAsync("UserPanelSideBar")
+                <div class="col-md-9 col-sm-8 col-xs-12">
+                    <section class="user-account-content">
+                        <header><h1>کیف پول</h1></header>
+                        @if (ViewBag.ChangePasswordResult == true)
+                        {
+                            <div class="alert alert-success">
+                                <p>ویرایش رمز عبور با موفقیت صورت گرفت.</p>
+                            </div>
+                        }
+                        @if (ViewBag.ChangePasswordResult == false)
+                        {
+                            <div class="alert alert-danger">
+                                <p>متاسفانه عملیات با شکست مواجه شد.</p>
+                            </div>
+                        }
+                    <div class="inner form-layer">
+                        <form asp-action="Index" method="post">
+                            @Html.AntiForgeryToken()
+
+                            <div class="row">
+                                <div class="col-md-7 col-sm-8 col-xs-12">
+                                    <div class="input-group">
+                                        <span class="input-group-addon" id=""><i class="zmdi zmdi-money"></i></span>
+                                        <input asp-for="Price" class="form-control" placeholder="مبلغ" aria-describedby="username">
+                                    </div>
+                                    @*<span asp-validation-for="OldPassword"></span>*@
+                                </div>
+                                <div class="col-md-7 col-sm-8 col-xs-12 text-danger" asp-validation-summary="All"></div>
+                                <br />
+                                <div class="col-md-7 col-sm-8 col-xs-12">
+                                    <button class="btn btn-success">شارژ کیف پول</button>
+                                </div>
+                            </div>
+
+
+                        </form>
+                        <hr />
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>مبلغ تراکنش</th>
+                                    <th>نوع تراکنش</th>
+                                    <th>شرح</th>
+                                    <th>تاریخ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if(transactions.Any())
+                                {
+                                    foreach (var item in transactions)
+                                    {
+                                <tr>
+                                    <td>@item.Price.ToString("#,0 تومان")</td>
+                                    @if (item.TransactionType == 1)
+                                    {
+                                        <td class="text-success">@item.Description</td>
+                                    }
+                                    else
+                                    {
+                                        <td class="text-danger">@item.Description</td>
+                                    }
+                                    <td>@item.Description</td>
+                                    <td>@item.PaidDate.ConvertToPersianDate()</td>
+                                </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                        
+                    </section>
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

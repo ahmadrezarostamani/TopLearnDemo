@@ -19,18 +19,21 @@ namespace ToplearnDemo.Repository.Service
 {
     public class UserRepository : IUserRepository
     {
-        private readonly TopleranDemoContext _db;
+        private readonly ToplearnDemoContext _db;
+        private readonly IWalletRepository _walletRepo;
         private readonly IMapper _mapper;
-        public UserRepository(TopleranDemoContext db,IMapper mapper)
+        public UserRepository(ToplearnDemoContext db,IMapper mapper,IWalletRepository walletRepo)
         {
             _db = db;
             _mapper = mapper;
+            _walletRepo = walletRepo;
         }
 
+        #region Register_Login
         public async Task<bool> ResetPassword(ResetPasswordViewModel model)
         {
-            var user =await _db.Users.FirstOrDefaultAsync(user => user.ActivationCode == model.ActivationCode);
-            if(user!=null)
+            var user = await _db.Users.FirstOrDefaultAsync(user => user.ActivationCode == model.ActivationCode);
+            if (user != null)
             {
                 user.Password = HashHelper.ComputeHash(model.Password);
                 user.ActivationCode = NameGenerator.GenerateUniqueString();
@@ -48,8 +51,8 @@ namespace ToplearnDemo.Repository.Service
 
         public async Task<bool> ActiveAccount(string acrivationCode)
         {
-            var user =await _db.Users.FirstOrDefaultAsync(u => u.ActivationCode == acrivationCode);
-            if(user==null)
+            var user = await _db.Users.FirstOrDefaultAsync(u => u.ActivationCode == acrivationCode);
+            if (user == null)
             {
                 return false;
             }
@@ -72,7 +75,7 @@ namespace ToplearnDemo.Repository.Service
             user.Password = HashHelper.ComputeHash(model.Password);
             user.UserImage = "Default.jpg";
             await _db.Users.AddAsync(user);
-            return await Save();           
+            return await Save();
         }
 
         public async Task<bool> EmailExists(string email)
@@ -83,7 +86,7 @@ namespace ToplearnDemo.Repository.Service
         public async Task<User> LoginUser(LoginViewModel user)
         {
             var hashedPassword = HashHelper.ComputeHash(user.Password);
-            return await _db.Users.FirstOrDefaultAsync(u => u.Email == user.Email.FixEmail() && u.Password==hashedPassword);
+            return await _db.Users.FirstOrDefaultAsync(u => u.Email == user.Email.FixEmail() && u.Password == hashedPassword);
         }
 
         public async Task<bool> UsernameExists(string username)
@@ -93,7 +96,7 @@ namespace ToplearnDemo.Repository.Service
 
         private async Task<bool> Save()
         {
-            if (await _db.SaveChangesAsync()>0)
+            if (await _db.SaveChangesAsync() > 0)
             {
                 return true;
             }
@@ -104,6 +107,7 @@ namespace ToplearnDemo.Repository.Service
         {
             return await _db.Users.AnyAsync(user => user.ActivationCode == activationCode);
         }
+        #endregion
 
         #region UserPanel
 
@@ -116,7 +120,7 @@ namespace ToplearnDemo.Repository.Service
                 Family=user.Family,
                 UserName = user.Username,
                 Email = user.Email,
-                Wallet = 0,
+                Wallet = await _walletRepo.GetUserWalletBalance(username),
                 RegisteredDate = user.RegisteredDate
             };
         }

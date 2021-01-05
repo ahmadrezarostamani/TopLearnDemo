@@ -8,7 +8,7 @@ using ToplearnDemo.DataLayer.Context;
 
 namespace ToplearnDemo.DataLayer.Migrations
 {
-    [DbContext(typeof(TopleranDemoContext))]
+    [DbContext(typeof(ToplearnDemoContext))]
     partial class TopleranDemoContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
@@ -36,8 +36,8 @@ namespace ToplearnDemo.DataLayer.Migrations
                     b.Property<DateTime>("PaidDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
 
                     b.Property<int>("TransactionTypeId")
                         .HasColumnType("int");

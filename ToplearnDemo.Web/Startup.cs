@@ -35,12 +35,13 @@ namespace ToplearnDemo.Web
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddAuthorization();
             services.AddSession(x => x.Cookie.IsEssential = true);
-            services.AddDbContext<TopleranDemoContext>(options=>{
+            services.AddDbContext<ToplearnDemoContext>(options=>{
                 options.UseSqlServer(_configuration.GetConnectionString("ToplaernDemoContextConnectionString"));
             });
             
             #region DI
             services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IWalletRepository, WalletRepository>();
             services.AddAutoMapper(typeof(Mapping));
             services.AddScoped<IViewRenderService, RenderViewToString>();
             services.AddScoped<IMessageSender, MessageSender>();

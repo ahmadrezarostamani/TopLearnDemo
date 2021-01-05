@@ -7,9 +7,9 @@ using ToplearnDemo.DataLayer.Models.Transaction;
 
 namespace ToplearnDemo.DataLayer.Context
 {
-    public class TopleranDemoContext:DbContext
+    public class ToplearnDemoContext:DbContext
     {
-        public TopleranDemoContext(DbContextOptions<TopleranDemoContext> options):base(options)
+        public ToplearnDemoContext(DbContextOptions<ToplearnDemoContext> options):base(options)
         {
 
         }

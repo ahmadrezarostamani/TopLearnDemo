@@ -10,8 +10,8 @@ using ToplearnDemo.DataLayer.Context;
 namespace ToplearnDemo.DataLayer.Migrations
 {
     [DbContext(typeof(ToplearnDemoContext))]
-    [Migration("20210102011722_transaction")]
-    partial class transaction
+    [Migration("20210104233450_forget-decimal")]
+    partial class forgetdecimal
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -38,8 +38,8 @@ namespace ToplearnDemo.DataLayer.Migrations
                     b.Property<DateTime>("PaidDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
 
                     b.Property<int>("TransactionTypeId")
                         .HasColumnType("int");

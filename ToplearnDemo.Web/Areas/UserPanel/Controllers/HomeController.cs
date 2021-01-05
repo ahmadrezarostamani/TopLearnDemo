@@ -16,9 +16,11 @@ namespace ToplearnDemo.Web.Areas.UserPanel.Controllers
     public class HomeController : Controller
     {
         private readonly IUserRepository _userRepo;
-        public HomeController(IUserRepository userRepo)
+        private readonly IWalletRepository _walletRepo;
+        public HomeController(IUserRepository userRepo,IWalletRepository walletRepo)
         {
             _userRepo = userRepo;
+            _walletRepo = walletRepo;
         }
         public async Task<IActionResult> Index()
         {
