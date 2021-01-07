@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ToplearnDemo.DataLayer\ToplearnDemo.DataLayer.csproj" />
+    <ProjectReference Include="..\ToplearnDemo.DomainClasses\ToplearnDemo.DomainClasses.csproj" />
     <ProjectReference Include="..\ToplearnDemo.Utility\ToplearnDemo.Utility.csproj" />
     <ProjectReference Include="..\ToplearnDemo.ViewModels\ToplearnDemo.ViewModels.csproj" />
   </ItemGroup>

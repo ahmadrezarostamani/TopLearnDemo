@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToplearnDemo.Web", "ToplearnDemo.Web\ToplearnDemo.Web.csproj", "{8841EAC1-9B64-4D2B-BE29-495E4C6CF916}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToplearnDemo.Web", "ToplearnDemo.Web\ToplearnDemo.Web.csproj", "{8841EAC1-9B64-4D2B-BE29-495E4C6CF916}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToplearnDemo.DataLayer", "ToplearnDemo.DataLayer\ToplearnDemo.DataLayer.csproj", "{5CBC991C-348E-48FA-B474-DBDCFA6497AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToplearnDemo.DataLayer", "ToplearnDemo.DataLayer\ToplearnDemo.DataLayer.csproj", "{5CBC991C-348E-48FA-B474-DBDCFA6497AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToplearnDemo.ViewModels", "ToplearnDemo.ViewModels\ToplearnDemo.ViewModels.csproj", "{B0FF6C99-FFFC-4E66-A6E8-57B7AED05A5F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToplearnDemo.ViewModels", "ToplearnDemo.ViewModels\ToplearnDemo.ViewModels.csproj", "{B0FF6C99-FFFC-4E66-A6E8-57B7AED05A5F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToplearnDemo.Repository", "ToplearnDemo.Repository\ToplearnDemo.Repository.csproj", "{A253B694-31C1-4688-9EC2-DE6E688519A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToplearnDemo.Repository", "ToplearnDemo.Repository\ToplearnDemo.Repository.csproj", "{A253B694-31C1-4688-9EC2-DE6E688519A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToplearnDemo.Utility", "ToplearnDemo.Utility\ToplearnDemo.Utility.csproj", "{DBBE2BB5-C174-4880-B59E-4A574C1640F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToplearnDemo.Utility", "ToplearnDemo.Utility\ToplearnDemo.Utility.csproj", "{DBBE2BB5-C174-4880-B59E-4A574C1640F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToplearnDemo.DomainClasses", "ToplearnDemo.DomainClasses\ToplearnDemo.DomainClasses.csproj", "{A554F64C-C936-477E-B13C-EB8DEF5FE887}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{DBBE2BB5-C174-4880-B59E-4A574C1640F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBBE2BB5-C174-4880-B59E-4A574C1640F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBBE2BB5-C174-4880-B59E-4A574C1640F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A554F64C-C936-477E-B13C-EB8DEF5FE887}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A554F64C-C936-477E-B13C-EB8DEF5FE887}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A554F64C-C936-477E-B13C-EB8DEF5FE887}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A554F64C-C936-477E-B13C-EB8DEF5FE887}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

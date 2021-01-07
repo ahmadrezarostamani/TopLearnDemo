@@ -7,7 +7,7 @@ using ToplearnDemo.DataLayer.Context;
 using ToplearnDemo.Repository.Repository;
 using Microsoft.EntityFrameworkCore;
 using ToplearnDemo.ViewModels.Account;
-using ToplearnDemo.DataLayer.Models.User;
+using ToplearnDemo.DomainClassess.User;
 using AutoMapper;
 using ToplearnDemo.Utility.Generators;
 using ToplearnDemo.Utility.Helpers;

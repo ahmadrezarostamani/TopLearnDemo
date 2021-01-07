@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel.DataAnnotations;
 
-namespace ToplearnDemo.DataLayer.Models.User
+namespace ToplearnDemo.DomainClassess.User
 {
     public class Role
     {

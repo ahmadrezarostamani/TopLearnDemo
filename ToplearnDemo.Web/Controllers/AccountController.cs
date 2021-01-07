@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ToplearnDemo.Repository.Repository;
 using ToplearnDemo.ViewModels.Account;
-using ToplearnDemo.DataLayer.Models;
+using ToplearnDemo.DomainClassess.User;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
@@ -117,7 +117,7 @@ namespace ToplearnDemo.Web.Controllers
             ViewBag.Returnurl = returnUrl;
             if (ModelState.IsValid)
             {
-                DataLayer.Models.User.User user =await  _userRepo.LoginUser(model);
+                ToplearnDemo.DomainClassess.User.User user =await  _userRepo.LoginUser(model);
                 if(user==null)
                 {
                     ModelState.AddModelError("", "نام کاربری یا رمز عبور وارد شده اشتباه است.");

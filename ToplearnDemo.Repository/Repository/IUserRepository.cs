@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using ToplearnDemo.DataLayer.Models.User;
+using ToplearnDemo.DomainClassess.User;
 using ToplearnDemo.ViewModels.Account;
 using ToplearnDemo.ViewModels.UserPanel;
 

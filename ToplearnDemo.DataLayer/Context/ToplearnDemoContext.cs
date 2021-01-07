@@ -2,8 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using ToplearnDemo.DataLayer.Models.User;
-using ToplearnDemo.DataLayer.Models.Transaction;
+using ToplearnDemo.DomainClassess.User;
+using ToplearnDemo.DomainClassess.Transaction;
 
 namespace ToplearnDemo.DataLayer.Context
 {

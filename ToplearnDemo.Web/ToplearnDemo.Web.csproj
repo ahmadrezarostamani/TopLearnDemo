@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ToplearnDemo.DataLayer\ToplearnDemo.DataLayer.csproj" />
+    <ProjectReference Include="..\ToplearnDemo.DomainClasses\ToplearnDemo.DomainClasses.csproj" />
     <ProjectReference Include="..\ToplearnDemo.Repository\ToplearnDemo.Repository.csproj" />
   </ItemGroup>
 

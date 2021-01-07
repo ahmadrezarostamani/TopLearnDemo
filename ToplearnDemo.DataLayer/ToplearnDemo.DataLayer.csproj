@@ -13,4 +13,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ToplearnDemo.DomainClasses\ToplearnDemo.DomainClasses.csproj" />
+  </ItemGroup>
+
 </Project>

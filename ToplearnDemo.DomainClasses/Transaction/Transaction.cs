@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using ToplearnDemo.DataLayer.Models.User;
+using ToplearnDemo.DomainClassess.User;
 using System.ComponentModel.DataAnnotations;
-namespace ToplearnDemo.DataLayer.Models.Transaction
+namespace ToplearnDemo.DomainClassess.Transaction
 {
     public class Transaction
     {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ToplearnDemo.DataLayer.Context;
-using ToplearnDemo.DataLayer.Models.Transaction;
+using ToplearnDemo.DomainClassess.Transaction;
 using ToplearnDemo.Repository.Repository;
 using ToplearnDemo.ViewModels.Wallet;
 

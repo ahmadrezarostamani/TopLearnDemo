@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ToplearnDemo.DataLayer.Models.User
+namespace ToplearnDemo.DomainClassess.User
 {
     public class UserRole
     {

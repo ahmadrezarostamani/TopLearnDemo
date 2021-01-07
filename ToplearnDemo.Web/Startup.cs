@@ -33,6 +33,7 @@ namespace ToplearnDemo.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
+            services.AddRazorPages().AddRazorPagesOptions(x=>x.RootDirectory="/Pages");
             services.AddAuthorization();
             services.AddSession(x => x.Cookie.IsEssential = true);
             services.AddDbContext<ToplearnDemoContext>(options=>{
@@ -89,7 +90,7 @@ namespace ToplearnDemo.Web
                 });
                 endpoints.MapControllerRoute("default","{controller=Home}/{action=Index}/{id?}");
 
-
+                endpoints.MapRazorPages();
             });
         }
     }
